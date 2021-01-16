@@ -2,31 +2,29 @@
 import Navbar from '../../components/navbar'
 import PageHeading from '../../components/page-heading'
 import Products from '../../components/products'
-import About from '../../components/about'
-import CTA from '../../components/call-to-action'
 import Footer from '../../components/footer'
 
-const HomePage = () => {
+const ProductsPage = () => {
   return ( 
     <>
       <Navbar 
-        pageName="home" 
+        pageName="products" 
       />
 
       <PageHeading 
-        heading="NEW ARRIVALS ON SALE"
-        subHeading="BEST OFFER"
+        heading="SIXTEEN PRODUCTS"
+        subHeading="NEW ARRIVALS"
       />
 
       <Products 
-        isHome={true}
+        isHome={false}
       />
-      
-      <About />
-      <CTA />
+
+        
+
       <Footer />
     </>
   );
 }
  
-export default HomePage;
+export default ProductsPage

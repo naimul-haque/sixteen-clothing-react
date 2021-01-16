@@ -1,14 +1,32 @@
-const Products = () => {
+import {Link} from '@reach/router';
+import Pagination from './pagination';
+
+const Products = ( {isHome}) => {
   return (  
-    <div className="latest-products">
+    <div className={`${isHome ? 'latest-products' : 'products'}`}>
       <div className="container">
         <div className="row">
-          <div className="col-md-12">
+
+          {isHome && <div className="col-md-12">
             <div className="section-heading">
               <h2>Latest Products</h2>
-              <a href="products.html">view all products <i className="fa fa-angle-right"></i></a>
+              <Link to="/products">
+              view all products <i className="fa fa-angle-right"></i>
+              </Link>
             </div>
-          </div>
+          </div>}
+
+          {!isHome && <div class="col-md-12">
+            <div class="filters">
+              <ul>
+                  <li class="active" data-filter="*">All Products</li>
+                  <li data-filter=".des">Featured</li>
+                  <li data-filter=".dev">Flash Deals</li>
+                  <li data-filter=".gra">Last Minute</li>
+              </ul>
+            </div>
+          </div>}
+
           <div className="col-md-4">
             <div className="product-item">
               <a href="/"><img src="assets/images/product_01.jpg" alt="" /></a>
@@ -118,6 +136,7 @@ const Products = () => {
             </div>
           </div>
         </div>
+        {!isHome && <Pagination />}
       </div>
     </div>
   );

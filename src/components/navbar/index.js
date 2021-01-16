@@ -1,3 +1,6 @@
+import { Link } from "@reach/router"
+
+
 const Navbar = ({ pageName }) => {
   return (  
     <header className="">
@@ -10,18 +13,16 @@ const Navbar = ({ pageName }) => {
           <div className="collapse navbar-collapse" id="navbarResponsive">
             <ul className="navbar-nav ml-auto">
               <li className={`nav-item ${pageName === 'home' ? 'active' : ''}`}>
-                <a className="nav-link" href="index.html">Home
-                  <span className="sr-only">(current)</span>
-                </a>
+                <Link to="/" className="nav-link">Home</Link>
               </li> 
               <li className={`nav-item ${pageName === 'products' ? 'active' : ''}`}>
-                <a className="nav-link" href="products.html">Our Products</a>
+                <Link to="/products" className="nav-link">Our Products</Link>
               </li>
               <li className={`nav-item ${pageName === 'about' ? 'active' : ''}`}>
-                <a className="nav-link" href="about.html">About Us</a>
+                <Link to="/about" className="nav-link">About</Link>
               </li>
               <li className={`nav-item ${pageName === 'contact' ? 'active' : ''}`}>
-                <a className="nav-link" href="contact.html">Contact Us</a>
+                <Link to="/contact" className="nav-link">Contact Us</Link>
               </li>
             </ul>
           </div>

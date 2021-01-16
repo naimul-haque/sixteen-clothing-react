@@ -9,12 +9,12 @@ import '../assets/css/templatemo-sixteen.css'
 /* 
  * import components
  */
-import Home from '../pages/home';
+import AppRouter from '../router';
 
 const App = () => {
   return (  
     <div>
-      <Home />
+      <AppRouter />
     </div>
   );
 }
