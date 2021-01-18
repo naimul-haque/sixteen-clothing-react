@@ -1,0 +1,28 @@
+name: Deploy on Surge.sh
+
+# Specify when the action will run
+on:
+  push:
+    branches: [main]
+
+# Specify workflow jobs
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checking out repository under $GITHUB_WORKSPACE, so that workflow can access it.
+      - uses: actions/checkout@v2
+
+      # Install Node.js
+      - name: Install Node.js
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: 12
+
+      # Install Surge
+      - name: Install Surge
+        run: npm install -g surge
+
+      # Deploy
+      - name: Run Surge
+        run: surge ./ ${{ secrets.SURGE_DOMAIN }} --token ${{ secrets.SURGE_TOKEN }}
